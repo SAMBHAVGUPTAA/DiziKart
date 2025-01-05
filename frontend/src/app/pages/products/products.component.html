@@ -1,0 +1,44 @@
+<div class="banner" style="background-color: #ffcc00; color: #333; padding: 20px; text-align: center;">
+  🔥 <strong>Hot Deals!</strong> Unwrap Savings and Elevate Your Shopping Experience Today! 🛍️✨
+</div>
+<div style="margin-inline: 5%; padding: 20px;">
+  <p-carousel [value]="products" [numVisible]="4" [numScroll]="2" [circular]="true"
+    [responsiveOptions]="responsiveOptions" [autoplayInterval]="6000">
+    <ng-template let-product pTemplate="item">
+      <div
+        style="border: 2px solid #f1f1f1; border-radius: 10px; margin: 5px; display: flex; align-items: center; flex-direction: column; padding: 10px; text-align: center; transition: transform 0.2s;"
+        class="product-card">
+        <div>
+          <img style="width: 20vh; border-radius: 10px;" src="{{ 'data:'+product.content_type+';base64,'+product.image }}"
+            [alt]="product.name" loading="lazy" />
+        </div>
+        <div>
+          <h3 style="font-size: 1.5em; color: #333;">{{ product.name }}</h3>
+          <h4 style="color: #e63946;">{{ '₹' + product.price }}</h4>
+          <p-rating [(ngModel)]="product.rating" [readonly]="true" [cancel]="false"></p-rating>
+          <div class="tool">
+            <p-button type="button" class="tool-button"
+              styleClass="p-button p-button-rounded p-button-text p-button-raised" icon="pi pi-search"
+              (onClick)="selectedProduct=product;showproduct=true">
+            </p-button>
+            <p-button type="button" class="tool-button"
+              styleClass="p-button-success p-button p-button-rounded p-button-text p-button-raised"
+              (onClick)="addToCart(product._id)" icon="pi pi-cart-plus">
+            </p-button>
+            <!-- Removed the Add to Wishlist button -->
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>
+<div style="text-align: center; margin-block: 20px;">
+  <img src="../../../assets/banner.png" alt="Promotional Banner" style="max-width: 100%; height: auto;" />
+</div>
+<app-loader *ngIf="!loaded"></app-loader>
+<ng-container *ngIf="showproduct">
+  <p-dialog [modal]="true" [draggable]="false" [resizable]="false" [maximizable]="true" [(visible)]="showproduct"
+    [style]="{width: '40vw'}">
+    <app-product [product]="selectedProduct"></app-product>
+  </p-dialog>
+</ng-container>

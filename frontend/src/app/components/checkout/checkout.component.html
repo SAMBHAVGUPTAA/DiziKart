@@ -1,0 +1,26 @@
+<div [formGroup]="paymentElementForm" style="margin: 10px;display: flex;flex-direction: column;">
+
+  <input class="form-control p-inputtext-sm" pInputText placeholder="name" formControlName="name" />
+
+
+  <input class="form-control p-inputtext-sm" pInputText placeholder="Email" type="email" formControlName="email" />
+
+
+  <input class="form-control p-inputtext-sm" pInputText placeholder="Address" formControlName="address" />
+
+
+  <input class="form-control p-inputtext-sm" pInputText placeholder="ZIP Code" formControlName="zipcode" />
+
+
+  <input class="form-control p-inputtext-sm" pInputText placeholder="city" formControlName="city" />
+
+  <ngx-stripe-payment *ngIf="elementsOptions?.clientSecret " [stripe]="stripe" style="margin-block: 10px;"
+    [clientSecret]="elementsOptions.clientSecret!">
+  </ngx-stripe-payment>
+
+  <p-button [ngStyle]="{'width':'100%'}" [disabled]="paymentElementForm.invalid" [label]="'Pay '+(amount | number )"
+    type="submit" icon="pi pi-money-bill" (onClick)="pay()">
+  </p-button>
+</div>
+<app-loader *ngIf="!loaded"></app-loader>
+<p-toast></p-toast>

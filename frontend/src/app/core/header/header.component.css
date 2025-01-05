@@ -1,0 +1,27 @@
+header {
+  position: sticky;
+  top: 0;
+  padding: 10px;
+  background-color: #ffffffa6;
+  box-shadow: 0 -6px 10px 5px rgb(171 171 171 / 50%);
+  backdrop-filter: blur(8px);
+  z-index: 999;
+}
+h2 {
+  margin: 0px;
+}
+.items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.right-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-inline: 10px;
+}
+
+.logout-icon {
+  color: red;
+}

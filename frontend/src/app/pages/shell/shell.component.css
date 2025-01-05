@@ -1,0 +1,17 @@
+.copyright {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  border-top: 1px solid gainsboro;
+  display: flex;
+  color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 2px;
+  background: #282e38;
+}
+.footer-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

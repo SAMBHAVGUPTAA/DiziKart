@@ -1,0 +1,21 @@
+<ng-container>
+  <input type="text" style="width: 100%;" pInputText [(ngModel)]="searchText" class="p-inputtext-sm"
+    placeholder="Search" (input)="filterProducts()" />
+  <ng-container *ngIf="searchText">
+
+    <div *ngFor="let product of filteredProducts">
+      <div style="display: flex;align-items: center;margin-block: 10px;">
+        <div><img width="50" src="{{ 'data:'+product.content_type+';base64,'+product.image }}" [alt]="product.name" />
+        </div>
+        <div style="    margin-inline-start: 10px;
+        text-decoration: underline;
+        color: #4d00ff;
+        cursor: pointer;
+        user-select: none;" (click)="selectedProduct=product;showproduct=true">{{ product.name }}</div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
+<ng-container *ngIf="showproduct && searchText">
+  <app-product [product]="selectedProduct"></app-product>
+</ng-container>

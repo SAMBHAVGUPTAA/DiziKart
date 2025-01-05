@@ -1,0 +1,38 @@
+<header>
+  <div class="items">
+    <h2 style="color: #4d00ff;
+    font-size: 1.6rem;letter-spacing: 2px;"><span><i style="    font-size: 1.5rem;
+    color: #00e190;" class="pi pi-shopping-bag"></i></span> DiziKart</h2>
+    <div class="right-section">
+      <i class="pi pi-search" (click)="search=true;"
+        style="color: #4d00ff;font-size: 2rem;margin-inline: 1.5rem;cursor: pointer;    font-weight: bolder;"></i>
+      <i class="pi pi-box" pBadge [value]="order_count" (click)="showorders=true;"
+        style="color: #51f2b8;font-size: 2rem;margin-inline: 1.5rem;cursor: pointer;    font-weight: bolder;"></i>
+      <i class="pi pi-shopping-cart" pBadge [value]="cart_items_count" (click)="show=true;"
+        style="color: #51f2b8;font-size: 2rem;margin-inline: 1.5rem;cursor: pointer;"></i>
+
+      <p-avatar [image]="profilePicture" (click)="menu.toggle($event)"
+        [ngStyle]="{'cursor': 'pointer','display':'flex','margin-left':'1rem'}" size="large" shape="circle"></p-avatar>
+    </div>
+  </div>
+</header>
+<p-menu #menu [model]="items" [popup]="true"></p-menu>
+
+<ng-container *ngIf="show">
+  <p-dialog [modal]="true" [draggable]="false" header="My Cart" [resizable]="false" [maximizable]="true"
+    [(visible)]="show" [style]="{width: '40vw'}">
+    <app-cart-list></app-cart-list>
+  </p-dialog>
+</ng-container>
+<ng-container *ngIf="showorders">
+  <p-dialog [modal]="true" [draggable]="false" header="My Orders" [resizable]="false" [maximizable]="true"
+    [(visible)]="showorders" [style]="{width: '40vw'}">
+    <app-orders></app-orders>
+  </p-dialog>
+</ng-container>
+<ng-container *ngIf="search">
+  <p-dialog [modal]="true" [draggable]="false" position="top" [resizable]="false" [maximizable]="false"
+    [(visible)]="search" [style]="{width: '25vw','margin-top':'5%'}">
+    <app-search></app-search>
+  </p-dialog>
+</ng-container>

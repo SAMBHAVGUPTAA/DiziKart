@@ -1,0 +1,57 @@
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px,
+  rgba(0, 0, 0, 0.2);
+}
+
+.tool-button {
+  margin: 5px;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    font-size: 1.2em;
+  }
+  .product-card {
+    width: 90%; /* Make product cards wider on smaller screens */
+  }
+  h3 {
+    font-size: 1.    2em;
+}
+h4 {
+  font-size: 1.1em;
+}
+.tool-button {
+  font-size: 1.2em;
+}
+}
+
+/* Add some animations to enhance user experience */
+.product-card {
+transition: transform 0.2s;
+}
+
+.product-card:hover {
+transform: scale(1.05);
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Add some hover effects to buttons */
+.tool-button:hover {
+background-color: #333;
+color: #fff;
+}
+
+/* Style the carousel navigation buttons */
+.p-carousel .p-carousel-prev, .p-carousel .p-carousel-next {
+background-color: #333;
+color: #fff;
+border: none;
+padding: 10px;
+border-radius: 50%;
+cursor: pointer;
+}
+
+.p-carousel .p-carousel-prev:hover, .p-carousel .p-carousel-next:hover {
+background-color: #444;
+}
